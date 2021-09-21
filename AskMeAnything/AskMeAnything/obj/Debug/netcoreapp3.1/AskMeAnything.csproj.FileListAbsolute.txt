@@ -1,0 +1,14 @@
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.csproj.AssemblyReference.cache
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.AssemblyInfoInputs.cache
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.AssemblyInfo.cs
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\bin\Debug\netcoreapp3.1\AskMeAnything.exe
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\bin\Debug\netcoreapp3.1\AskMeAnything.deps.json
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\bin\Debug\netcoreapp3.1\AskMeAnything.runtimeconfig.json
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\bin\Debug\netcoreapp3.1\AskMeAnything.runtimeconfig.dev.json
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\bin\Debug\netcoreapp3.1\AskMeAnything.dll
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\bin\Debug\netcoreapp3.1\AskMeAnything.pdb
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.dll
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.pdb
+C:\Users\Thomas\Documents\GitHub\AskMeAnything\AskMeAnything\AskMeAnything\obj\Debug\netcoreapp3.1\AskMeAnything.genruntimeconfig.cache

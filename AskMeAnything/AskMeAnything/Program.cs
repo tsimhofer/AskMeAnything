@@ -5,7 +5,7 @@ using System.Text;
 namespace AskMeAnything
 {
 
-    class AmA
+    public class AmA
     {
         static void Main(string[] args)
         {
@@ -112,7 +112,7 @@ namespace AskMeAnything
         }
     }
 
-    class Question
+    public class Question
     {
         string question = "";
         ArrayList answers = new ArrayList();
