@@ -73,5 +73,16 @@ namespace AskMeAnything.Tests
 
             Assert.ThrowsException<System.ArgumentException>(() => myAmATest.DefineQuestion(q + " " + a));
         }
+
+        [TestMethod()]
+        public void FindQuestion()
+        {
+            string q = "What is Peters absolute favorite food?";
+            string a = " \"Pizzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\" \"Spaghetti\" \"Ice cream\"";
+
+            AmA myAmATest = new AmA();
+
+            Assert.ThrowsException<System.ArgumentException>(() => myAmATest.DefineQuestion(q + " " + a));
+        }
     }
 }
