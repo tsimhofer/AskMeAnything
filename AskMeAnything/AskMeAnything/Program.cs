@@ -7,26 +7,24 @@ namespace AskMeAnything
 
     public class AmA
     {
+        ArrayList Questions = new ArrayList();
+
         static void Main(string[] args)
         {
-            string fileName = Path.GetTempFileName();
-            init(fileName);
-
+            AmA myAmA = new AmA();
             while (true)
             {
                 string input = Console.ReadLine();
                 if (input.Contains("?"))
                 {
                     string[] inputs = input.Split("?");
-                    //Console.WriteLine("Inputs[1] size=" + inputs[1].Length);
                     if (inputs[1].Length > 0) // Case 1: Question defined
                     {
-                        AmA.DefineQuestion(fileName, input);
-
+                        myAmA.DefineQuestion(input);
                     }
                     else // Case 2: Question asked 
                     {
-                        Question q = AmA.FindQuestion(inputs[0], fileName);
+                        Question q = myAmA.FindQuestion(inputs[0]);
                         if (q != null)
                         {
                             q.printAnswers();
@@ -42,71 +40,78 @@ namespace AskMeAnything
 
             }
         }
-        public static void init(string path)
+      
+        public ArrayList GetQuestions()
         {
-            // Delete the file if it exists.
-            if (File.Exists(path))
-            {
-                File.Delete(path);
-            }
-
-            //Create the file.
-            using (FileStream fs = File.Create(path))
-            {
-                AddText(fs, "What is Peters favorite food? \"Pizza\" \"Spaghetti\" \"Ice Cream\"\r\n");
-            }
-            Console.WriteLine("Initialized temporary file '" + path + "'.");
-            Console.WriteLine("Welcome to AmA! Ask me anything ... \r\n");
-
+            return this.Questions;
         }
 
-        public static void DefineQuestion(string path, string input)
-        {
-            //Question question = LineToQuestion(input);
-
-            using (StreamWriter sw = File.AppendText(path))
-            {
-                sw.WriteLine(input);
-            }
-        }
-
-        private static void AddText(FileStream fs, string value)
-        {
-            byte[] info = new UTF8Encoding(true).GetBytes(value);
-            fs.Write(info, 0, info.Length);
-        }
-
-        public static Question FindQuestion(string q, string filename)
+        public Boolean DefineQuestion(string input)
         {
             Question question = null;
-            System.IO.StreamReader file = new System.IO.StreamReader(filename);
-            string line;
-
-            while ((line = file.ReadLine()) != null)
+            try
             {
-                if (line.Split("?")[0].Equals(q))
+                question = LineToQuestion(input);
+            }catch(ArgumentException e)
+            {
+                throw new ArgumentException("Argument is too long! ", e);
+            }
+            
+            
+            if (question != null)
+            {
+                this.Questions.Add(question);
+                return true;
+            }
+            
+            return false;
+        }
+
+        public Question FindQuestion(string q)
+        {
+            foreach(Question question in Questions)
+            { 
+                if (question.getQuestion().Equals(q))
                 {
-                    question = LineToQuestion(line);
+                    return question;
                 }
             }
 
-            file.Close();
-            return question;
+            return null;
         }
         public static Question LineToQuestion(string line)
         {
+            
             string[] qa = line.Split("?");
+
+            if (qa[0].Length > 255)
+            {
+                throw new ArgumentException("Question must be less than 255 characters long!");
+            }
             Question q = new Question(qa[0]);
+
+            if (qa.Length < 2) // Usage Error - '?' missing
+                return null;
+
             string[] answers = qa[1].Split("\"");
+
+            /* @TODO Handle usage errors*/
 
             for (int i = 1; i < answers.Length; i += 2)
             {
-
+                if(answers[i].Length > 255)
+                {
+                    throw new ArgumentException("Answer is too long (max. 255 characters)");
+                }
                 if (answers[i].Length > 0)
                 {
                     q.addAnswer(answers[i].Substring(0, answers[i].Length));
                 }
-
+                else
+                {
+                    // Usage ...
+                    return null;
+                }
             }
             return q;
         }
@@ -122,7 +127,7 @@ namespace AskMeAnything
         }
         public void addAnswer(string answer)
         {
-            this.answers.Add(answer);
+            answers.Add(answer);
         }
 
         public void printAnswers()
@@ -133,5 +138,14 @@ namespace AskMeAnything
             }
         }
 
+        public string getQuestion()
+        {
+            return this.question;
+        }
+
+        public ArrayList getAnswers()
+        {
+            return answers;
+        }
     }
 }
